@@ -1,0 +1,51 @@
+body
+{
+    background-color:#424344;
+}
+  
+ul
+{
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#5f0c96;
+}
+
+li
+{
+    float: left;
+}
+
+ul li
+{
+    color:rgb(210, 205, 255);
+    margin-top:2px;
+    margin-left:2px;
+    margin-right:2px;
+    margin-bottom:2px;
+}
+
+#logo_home
+{
+    margin-top:8px;
+    margin-left:55vh;
+    width: 15%;
+    height: 15%;
+}
+
+li a
+{
+    display: block;
+    text-align: center;
+    text-decoration:none;
+    padding: 16px;
+    color: white;
+    font-size: 22px;
+}
+
+li a:hover
+{
+    color:#000;
+    background-color: #ab37e0;
+}
