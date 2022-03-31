@@ -1,24 +1,94 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Contactenos</title>
-        <meta name="description" content="pagina de contactenos">
-        <meta name="keywords" content="contactenos,ecommerce">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"  href="css/reset.css" type="text/css"/>
-        <link rel="stylesheet"  href="" type="text/css"/>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactenos</title>
+    <section> <!--imports-->
+        <link rel="stylesheet"  href="./css/reset.css" type="text/css"/>
+        <link rel="stylesheet"  href="./css/Style.css" type="text/css"/>
+        <link rel="stylesheet"  href="./css/sidebar.css" type="text/css"/>
+        <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Lato:300,700|Roboto+Condensed:700"/>
+    </section>
+</head>
+
+<body>
+
+    
+    <section> <!--Common Format-->
+        <!--Seccion Sidebar-->
+        <input type="checkbox" id="navcheck" role="button" title="menu">
+        <label for="navcheck" aria-hidden="true" title="menu">
+            <span class="burger">
+                <span class="bar">
+                    <span class="visuallyhidden">Menu</span>
+                </span>
+            </span>
+        </label>
+        <nav id="menu">
+            <a href="#">Lorem.</a>
+            <a href="#">Nesciunt!</a>
+            <a href="#">Magnam.</a>
+            <a href="#">Ipsum.</a>
+            <a href="#">Voluptatem.</a>
+            <a href="#">Quibusdam.</a>
+        </nav>
+
         
-        <script src="" async defer></script>
-    </body>
+        <!--Seccion Footer y Header-->
+        <div class="nav_bar" id="header">
+            <ul id="upperbar">
+                <a href="index.html"><img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'"></a>
+                <li style="z-index: -999;"><a style="z-index: -999;" href="#">No debo Verme</a></li> <!--Boton pivote oculto para dar mismo tamaño a barra de header con footer-->
+            </ul>
+        </div>
+        <div class="nav_bar" id="footer">
+            <ul id="bottombar">
+                <a href="index.html"><img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'"></a>
+                <li style="float: right;"><a style="float: right;" href="contactus.html">Contactenos</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="formulario">
+        <div>
+        <form>
+
+            <p>Rellene sus datos para ser contactado</p>
+            <ul>
+                <li>
+                    <label for="nombre" class="datosBasicos">Nombre</label>
+                    <input id="nombre" type="text" placeholder="Nombre" required/>
+                </li>
+                <li>
+                    <label for="apellidos" class="datosBasicos">Apellidos</label>
+                    <input id="apellidos" type="text" placeholder="Apellidos" required="true"/>
+                </li>
+                <li>
+                    <label for="rut" class="datosBasicos">RUT</label>
+                    <input id="rut" type="text" placeholder="123456789" required="true">
+                </li>
+                <li>
+                    <label for="email" class="datosBasicos">E-mail</label>
+                    <input id="email" type="email" placeholder="Email" required="true">
+                </li>
+                <li>
+                    <label for="telefono" class="datosBasicos">Teléfono</label>
+                    <input id="telefono" type="number" placeholder="Teléfono" required="true">
+                </li>
+                <label>Descripción de su problema/sugerencia:</label >
+                <br>
+                <textarea id="descripcion" rows="6" cols="33" required="true"></textarea >
+                <li>
+                    <button type="submit">Enviar</button>
+                    <button type="reset">Limpiar</button>
+                </li>
+            </ul>
+
+        </form>
+        </div>
+    </section>
+</body>
+
 </html>

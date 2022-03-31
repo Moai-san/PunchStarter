@@ -2,8 +2,33 @@ body
 {
     background-color:#424344;
 }
-  
-ul
+
+/* Estilos Barras de navegacion*/
+#footer
+{
+    bottom: 0;
+}
+
+#logo_home
+{
+    position: sticky;
+    top: 0.5vw;
+    left: 80vh;
+    width: 100%;
+    height: auto;
+    max-width: 15%;
+    max-height: 15%;
+}
+
+.nav_bar
+{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.nav_bar ul
 {
     list-style-type:none;
     margin: 0;
@@ -12,12 +37,7 @@ ul
     background-color:#5f0c96;
 }
 
-li
-{
-    float: left;
-}
-
-ul li
+.nav_bar ul li
 {
     color:rgb(210, 205, 255);
     margin-top:2px;
@@ -26,26 +46,70 @@ ul li
     margin-bottom:2px;
 }
 
-#logo_home
+.nav_bar li
 {
-    margin-top:8px;
-    margin-left:55vh;
-    width: 15%;
-    height: 15%;
+    position:relative;
+    /* left: 50px; linea a incluir si se desean poner botones en header ya que de no incluirse, se asolaparían con la sidebar*/
+    float: left;
 }
 
-li a
+.nav_bar li a
 {
     display: block;
     text-align: center;
     text-decoration:none;
-    padding: 16px;
+    padding: 0.8vw;
     color: white;
-    font-size: 22px;
+    font-size: 1.5vw;
 }
 
-li a:hover
+.nav_bar li a:hover
 {
     color:#000;
     background-color: #ab37e0;
 }
+
+/* Estilo Formulario de contacto */
+
+form
+{
+    list-style-type: none;
+}
+
+#formulario p
+{
+    color:white;
+}
+
+#formulario li
+{
+    margin: 10px;
+    color: white;
+}
+
+#formulario label
+{
+    color: white;
+    display: inline-block;
+    text-align: right;
+}
+
+#formulario form
+{
+    position:absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.datosBasicos
+{
+    width: 60px;
+}
+
+
+
+
+
+
+
