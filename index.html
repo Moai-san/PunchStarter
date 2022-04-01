@@ -10,6 +10,12 @@
         <link rel="stylesheet"  href="./Css/Style.css" type="text/css"/>
         <link rel="stylesheet"  href="./Css/sidebar.css" type="text/css"/>
         <link rel="stylesheet"  href="https://fonts.googleapis.com/css?family=Lato:300,700|Roboto+Condensed:700"/>
+        <section> <!--imports galeria carousel-->
+            <link rel="stylesheet" href="./Css/flickity.css">
+            <link rel="stylesheet" href="./Css/carousel.css">
+            <script src="./js/flickity.pkgd.js"></script>
+        </section>
+
     </section>
 </head>
 <body>
@@ -51,6 +57,14 @@
         </div>
     </section>
 
+    <div class="gallery js-flickity"
+        data-flickity-options='{ "wrapAround": true, "autoPlay": 2000, "freeScroll": true }'>
+        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_leonardo_gonzalez.jpg" alt=""></div>
+        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_nicolas_lagos.jpg" alt=""></div>
+        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_leonardo_gonzalez.jpg" alt=""></div>
+        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_nicolas_lagos.jpg" alt=""></div>
+        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_leonardo_gonzalez.jpg" alt=""></div>
+    </div>
     
 </body>
 </html>

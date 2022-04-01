@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Css/flickity.css">
+    <link rel="stylesheet" href="./Css/carousel.css">
     <script src="./js/flickity.pkgd.js"></script>
     <title>Document</title>
 </head>
@@ -20,50 +21,3 @@
 </body>
 </html>
 
-
-<style>* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body { font-family: sans-serif; }
-  
-  .gallery {
-    background: #EEE;
-    width: 50%;
-    height: 40vh;
-  }
-  
-  .gallery-cell {
-      overflow: hidden;
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    text-align: center;
-    margin-right: 10px;
-    background: #8C8;
-    counter-increment: gallery-cell;
-  }
-  
-  /* cell number */
-  .gallery-cell:before {
-    width: inherit;
-    height: inherit;
-    display: block;
-    font-size: 80px;
-    color: white;
-  }
-
-  .flickity-page-dots {
-  bottom: 10px;
-}
-/* dots are lines */
-.flickity-page-dots .dot {
-  height: 4px;
-  width: 40px;
-  margin: 0;
-  border-radius: 0;
-  background: #000;
-  border: 2px solid white;
-}
-  </style>
