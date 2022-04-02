@@ -53,3 +53,23 @@ body { font-family: sans-serif; }
     background: #000;
     border: 2px solid white;
 }
+
+p
+{
+    position: absolute;
+    text-align: justify;
+    color: #fff;
+    width: 80%;
+}
+
+#title
+{
+    top: 55%;
+    left: 10%;
+}
+
+#desc
+{
+    top: 60%;
+    left: 10%;
+}

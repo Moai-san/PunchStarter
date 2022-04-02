@@ -1,4 +1,7 @@
-
+body
+{
+    font:inherit;
+}
 #title
 {
     position: absolute;
