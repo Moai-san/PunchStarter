@@ -1,10 +1,10 @@
 /*  Source: https://gist.github.com/CodeMyUI/0c811e706027ab9db86353d3a0ef07b2  */
 
-input {
+.input {
 	 position: fixed;
 	 opacity: 0;
 }
- label {
+ .label {
 	 position: absolute;
 	 margin: 0;
 	 padding: 0;
@@ -13,7 +13,7 @@ input {
 	 background: none;
 	 cursor: pointer;
 }
- label::before {
+ .label::before {
 	 position: fixed;
 	 z-index: 2;
 	 top: 0;
@@ -26,7 +26,7 @@ input {
 	 pointer-events: none;
 	 transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
- label .burger {
+ .label .burger {
 	 position: fixed;
 	 top: 1vw;
 	 left: 1em;
@@ -37,7 +37,7 @@ input {
 	 padding: 0;
 	 transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
- label .burger::before, label .burger .bar, label .burger::after {
+ .label .burger::before, label .burger .bar, label .burger::after {
 	 position: absolute;
 	 left: 0;
 	 display: block;
@@ -47,18 +47,18 @@ input {
 	 content: '';
 	 transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
- label .burger .bar {
+ .label .burger .bar {
 	 top: 44%;
 }
- label .burger::before {
+ .label .burger::before {
 	 top: 0;
 	 transform-origin: top left;
 }
- label .burger::after {
+ .label .burger::after {
 	 bottom: 0;
 	 transform-origin: bottom left;
 }
- input:focus + label .burger, label:hover .burger {
+ .input:focus + label .burger, label:hover .burger {
 	 opacity: 0.85;
 }
  nav {

@@ -1,0 +1,47 @@
+/* Estilo Formulario de contacto */
+
+.formulario{
+    
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    padding: 10px;
+    overflow: auto;
+    color: white;
+    background-color: #5f0c96;
+
+}
+
+.formulario label{
+
+    display: block;
+}
+
+.formulario input{
+
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.formulario h4{
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.formulario textarea{
+
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.buttons{
+
+    list-style-type: none;
+}
+
