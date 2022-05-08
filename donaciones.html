@@ -15,44 +15,62 @@
                 <link rel="stylesheet" href="./Css/carousel_proyects.css">
                 <script src="./js/flickity.pkgd.js"></script>
             </section>
+            <section> <!--imports bootstrap-->
+                <link href="./css/bootstrap.css" rel="stylesheet">
+                <script src="./js/bootstrap.bundle.js"></script>
+            </section>
         </section>
     </head>
 
     <body>
         <section> <!--Common Format-->
-            <!--Seccion Sidebar-->
-            <input class="input" type="checkbox" id="navcheck" role="button" title="menu">
-            <label class="label" for="navcheck" aria-hidden="true" title="menu">
-                <span class="burger">
-                    <span class="bar">
-                        <span class="visuallyhidden">Menu</span>
+            <section> <!--Seccion Sidebar-->
+                <input class="input" type="checkbox" id="navcheck" role="button" title="menu">
+                <label class="label" for="navcheck" aria-hidden="true" title="menu">
+                    <span class="burger">
+                        <span class="bar">
+                            <span class="visuallyhidden">Menu</span>
+                        </span>
                     </span>
-                </span>
-            </label>
-
-            <nav id="menu">
-                <a href="#">Iniciar Sesion</a>
-                <a href="./about.html">Sobre Nosotros</a>
-                <a href="./terms.html">Terminos & Condiciones</a>
-                <a href="./donaciones.html">Donaciones</a>
-                <a href="#">TBD</a>
-                <a href="#">TBD</a>
-            </nav>
-
-            <!--Seccion Footer y Header-->
-            <div class="nav_bar" id="header">
-                <ul id="upperbar">
-                    <a href="index.html"><img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'"></a>
-                    <li style="z-index: -999;"><a style="z-index: -999;" href="#">No debo Verme</a></li> <!--Boton pivote oculto para dar mismo tamaño a barra de header con footer-->
-                </ul>
-            </div>
-
-            <div class="nav_bar" id="footer">
-                <ul id="bottombar">
-                    <a href="index.html"><img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'"></a>
-                    <li style="float: right;"><a style="float: right;" href="contactus.html">Contactenos</a></li>
-                </ul>
-            </div>
+                </label>
+                <nav id="menu">
+                    <a href="#">Iniciar Sesion</a>
+                    <a href="./about.html">Sobre Nosotros</a>
+                    <a href="./terms.html">Terminos & Condiciones</a>
+                    <a href="./donaciones.html">Donaciones</a>
+                    <a href="#">TBD</a>
+                    <a href="#">TBD</a>
+                </nav>
+            </section>
+    
+            
+            <!--Seccion Footer y Header con bootstrap + css propios-->
+            <section>
+                <header class="nav_bar" id="header">
+                    <div class="container-fluid"></div>
+                        <ul id="upperbar">
+                            <a href="index.html">
+                                <img class="img-fluid" id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'">
+                            </a>
+                            <li class="nav-item" style="z-index: -999;">
+                                <a style="z-index: -999;" href="#">No debo Verme</a>
+                            </li> <!--Boton pivote oculto para dar mismo tamaño a barra de header con footer-->                        
+                        </ul>
+                    </div>
+                </header>
+                <footer class="nav_bar" id="footer">
+                    <div class="container-fluid"></div>
+                        <ul id="bottombar">
+                            <a href="index.html">
+                                <img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'">
+                            </a>
+                            <li class="nav-item" style="float: right;">
+                                <a style="float: right;" href="contactus.html">Contactenos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </footer>
+            </section>
         </section>
 
         <section id="proyect"> 

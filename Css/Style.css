@@ -1,12 +1,21 @@
 body
 {
     background-color:#424344;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 /* Estilos Barras de navegacion*/
+
+
 #footer
 {
     bottom: 0;
+}
+
+#header
+{
+    top: 0;
 }
 
 #logo_home
@@ -15,7 +24,7 @@ body
     top: 0.5vw;
     left: 80vh;
     width: 100%;
-    height: auto;
+    min-height: 15%;
     max-width: 15%;
     max-height: 15%;
 }
@@ -58,7 +67,7 @@ body
     display: block;
     text-align: center;
     text-decoration:none;
-    padding: 0.8vw;
+    padding: 0.4vw;
     color: white;
     font-size: 1.5vw;
 }
@@ -68,4 +77,3 @@ body
     color:#000;
     background-color: #ab37e0;
 }
-
