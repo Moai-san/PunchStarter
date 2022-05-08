@@ -62,7 +62,7 @@
                 <div class="container-fluid"></div>
                     <ul id="bottombar">
                         <a href="index.html">
-                            <img id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'">
+                            <img class="img-fluid " id="logo_home" src="./Images/logo_dark.png" onmouseover="this.src='./Images/logo_lite.png'" onmouseout="this.src='./Images/logo_dark.png'">
                         </a>
                         <li class="nav-item" style="float: right;">
                             <a style="float: right;" href="contactus.html">Contactenos</a>
@@ -73,15 +73,20 @@
         </section>
     </section>
 
-    <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "autoPlay": 3000, "freeScroll": true }'>
-        <div class="gallery-cell"><img style="width: 100%;height: inherit; text-align: center;" src="./Images/Pobreza 3.jpg"/></div>
-        <div class="gallery-cell"><img style="width: 100%;height: inherit; text-align: center;" src="./Images/Pobreza Chile.jpg"/></div>
-        <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_nicolas_lagos.jpg" alt=""></div>
-    </div>
+    <div class="container-fluid">
 
-    <p id="title" style="font-size: large;">Bienvenidos a PunchStarter (no guardamos relacion alguna con KickStarter) <br> <br> <br></p>
-    <p id="desc">Este proyecto nace en base a la necesidad que se vé en el día a día en las calles de la quinta region, donde hay muchas personas en situacion de calle y con pocas o nulas posibilidades de mejorar su situacion. <br>
-    La idea de esta pagina es ayudar con la recaudacion de fondos a startups e ideas buenas, que quiza no tienen suficiente dinero para verse materializadas, y a su vez cobrar una pequeña comision de esta recaudacion, la cual será utilizada en su totalidad para ayudar a la gente en situacion de calle.</p>
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true, "autoPlay": 3000, "freeScroll": true }'>
+            <div class="gallery-cell"><img style="width: 100%;height: inherit; text-align: center;" src="./Images/Pobreza 3.jpg"/></div>
+            <div class="gallery-cell"><img style="width: 100%;height: inherit; text-align: center;" src="./Images/Pobreza Chile.jpg"/></div>
+            <div class="gallery-cell"><img style="width: inherit;height: inherit; text-align: center;" src="./Images/about_nicolas_lagos.jpg" alt=""></div>
+        </div>
+    
+        <div class="container-fluid">
+            <p class="text-sm-start fw-bold fs-6 lh-1 row text-break" id="title">Bienvenidos a PunchStarter (no guardamos relacion alguna con KickStarter) <br><br><br></p>
+            <p class="text-sm-start fs-6 lh-1 row text-break text-body" id="desc">Este proyecto nace en base a la necesidad que se vé en el día a día en las calles de la quinta region, donde hay muchas personas en situacion de calle y con pocas o nulas posibilidades de mejorar su situacion. <br>
+            La idea de esta pagina es ayudar con la recaudacion de fondos a startups e ideas buenas, que quiza no tienen suficiente dinero para verse materializadas, y a su vez cobrar una pequeña comision de esta recaudacion, la cual será utilizada en su totalidad para ayudar a la gente en situacion de calle.</p>    
+        </div>
+    </div>
     
 </body>
 </html>
