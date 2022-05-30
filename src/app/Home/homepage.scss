@@ -1,0 +1,26 @@
+@import url(../carousel-global-settings.scss);
+.carousel
+{
+    left: 10%;
+    top: 10%;
+}
+
+p
+{
+    position: absolute;
+    text-align: justify;
+    color: #fff;
+    width: 80%;
+}
+
+#title
+{
+    top: 55%;
+    left: 10%;
+}
+
+#desc
+{
+    top: 60%;
+    left: 10%;
+}

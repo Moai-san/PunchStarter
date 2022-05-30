@@ -1,0 +1,90 @@
+#title
+{
+    position: absolute;
+    right: 36%;
+    top:8%;
+    h1
+    {
+        list-style: none;
+        color: white;
+        font-size: x-large;
+    }
+
+    h2
+    {
+        list-style: none;
+        color: white;
+        font-size: large;
+    }
+}
+
+.info
+{ 
+    width: 40%;
+    list-style: none;
+    color: white;
+    text-align: left;
+}
+
+#desc
+{
+    position: absolute;
+    text-align: justify;
+    width: 80%;
+    left: 10%;
+    top: 56%;
+}
+
+.box
+{
+    position: absolute;
+    top: 59%;
+    left: 63.5%;
+    border: 10px solid #829b8f;
+    border-radius: 10px;
+    background: white;
+    height: 230px;
+    width: 500px;
+    padding: 10px;
+    li
+    {
+        color: black;
+        font-size: 20px;
+    }
+}
+
+.box2
+{
+    position: inherit;
+    right: 5%;
+    bottom: 10%;
+    border: 5px solid firebrick;
+    border-radius: 10px;
+    background: cornflowerblue;
+    height: 10px;
+    width: 70px;
+    padding: 10px;
+    a
+    {
+        position: inherit;
+        text-decoration: none;
+        top: -30%;
+        left: 6%;
+    }
+
+    li
+    {
+        color: black;
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+@import url(../carousel-global-settings.scss);
+
+.carousel
+{
+    
+    left: 10%;
+    top: 15%;
+}
