@@ -9,6 +9,7 @@ import { terms } from './Terms';
 import { contactus } from './Contactus';
 import { donaciones } from './Donaciones';
 import { aboutus } from './Aboutus';
+import { login } from './Login';
 
 
 
@@ -26,7 +27,8 @@ import { aboutus } from './Aboutus';
     terms,
     contactus,
     donaciones,
-    aboutus
+    aboutus,
+    login
   ],
   providers: [],
   bootstrap: [AppComponent]

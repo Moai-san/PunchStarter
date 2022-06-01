@@ -6,6 +6,7 @@ import { homepage } from './Home';
 import { donaciones } from './Donaciones';
 import { notFound } from './NotFound';
 import { aboutus } from './Aboutus';
+import { login } from './Login';
 
 const routes: Routes = 
 [
@@ -14,6 +15,7 @@ const routes: Routes =
   { path: 'contactus', component: contactus},
   { path: 'donateus', component: donaciones},
   { path: 'aboutus', component: aboutus},
+  { path: 'login', component: login},
   { path: '**', component: notFound}
 ];
 
