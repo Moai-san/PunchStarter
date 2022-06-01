@@ -22,6 +22,11 @@ node_modules/*
 !node_modules/typescript
 !node_modules/sass
 !node_modules/sass-loader
+!node_modules/tslib
+!node_modules/__ngcc_entry_points__.json
+!node_modules/.cli-ngcc
+!node_modules/.bin
+!node_modules/@yarnpkg
 
 npm-debug.log
 yarn-error.log
