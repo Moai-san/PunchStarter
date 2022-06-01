@@ -5,6 +5,7 @@ import { contactus } from './Contactus';
 import { homepage } from './Home';
 import { donaciones } from './Donaciones';
 import { notFound } from './NotFound';
+import { aboutus } from './Aboutus';
 
 const routes: Routes = 
 [
@@ -12,6 +13,7 @@ const routes: Routes =
   { path: 'terms', component: terms},
   { path: 'contactus', component: contactus},
   { path: 'donateus', component: donaciones},
+  { path: 'aboutus', component: aboutus},
   { path: '**', component: notFound}
 ];
 

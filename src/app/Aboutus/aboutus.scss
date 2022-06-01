@@ -1,0 +1,110 @@
+.datosBasicos
+{
+    width: 60px;
+}
+
+p
+{
+    color:white;
+    text-align: justify;
+}
+
+.content
+{
+
+    position: absolute;
+    height: 90%;
+    top: 58px;
+    left: 0px;
+    overflow: auto;
+}
+
+.profile_div
+{
+
+    width: 90%;
+    margin: auto;
+
+}
+
+.img_container
+{
+    display: inline-block;
+    width: 15%;
+    height: 20%;
+    margin-top: 1%;
+    margin-right: 5%;
+}
+
+.imagen
+{
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    position: absolute;
+    left: 10%;
+    bottom: 16%;
+}
+
+.overlay
+{
+    position: absolute;
+    width: 183px;
+    height: 183px;
+    left: 10%;
+    bottom: 16%;
+    border-radius: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #690068;
+}
+
+.img_container:hover .overlay {
+    opacity: 1;
+}
+
+.name
+{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text
+{
+
+    vertical-align: center;
+    display:inline-block;
+    width: 60%;
+    padding: 1%;
+    margin-top: 4.5%;
+
+}
+
+.buttons_container
+{
+
+    vertical-align: top;
+    margin-left: 3%;
+    display: inline-block;
+    margin-top: 6%;
+    padding: 1%;
+    width: 10%;
+    
+}
+
+.logo
+{
+    display:block;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}

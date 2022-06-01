@@ -8,6 +8,7 @@ import { menu } from './Menu/menu';
 import { terms } from './Terms';
 import { contactus } from './Contactus';
 import { donaciones } from './Donaciones';
+import { aboutus } from './Aboutus';
 
 
 
@@ -24,7 +25,8 @@ import { donaciones } from './Donaciones';
     menu,
     terms,
     contactus,
-    donaciones
+    donaciones,
+    aboutus
   ],
   providers: [],
   bootstrap: [AppComponent]
