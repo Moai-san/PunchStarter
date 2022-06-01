@@ -7,7 +7,22 @@
 /bazel-out
 
 # Node
-/node_modules
+!node_modules
+node_modules/*
+!node_modules/@types
+!node_modules/@popperjs
+!node_modules/@npmcli
+!node_modules/@nodelib
+!node_modules/@ngtools
+!node_modules/@ng-bootstrap
+!node_modules/@angular-devkit
+!node_modules/@angular
+!node_modules/bootstrap
+!node_modules/jquery
+!node_modules/typescript
+!node_modules/sass
+!node_modules/sass-loader
+
 npm-debug.log
 yarn-error.log
 
