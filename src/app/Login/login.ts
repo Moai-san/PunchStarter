@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import { UserLogin } from "./userLogin";
+import { UserRegister } from "./userRegister";
 
 @Component(
 {
@@ -8,5 +10,8 @@ import {Component} from '@angular/core';
 })
 export class login
 {
-    
+    loginModel = new UserLogin('', '');
+    registerModel = new UserRegister('', '', '', '', '');
+    submitted = false;
+    onSubmit() { this.submitted = true; }
 }

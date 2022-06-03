@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Sugerencias } from "./sugerencias";
 
 @Component(
 {
@@ -8,5 +9,7 @@ import {Component} from '@angular/core';
 })
 export class contactus
 {
-    
+    model = new Sugerencias('', '', '', '', 56, '');
+    submitted = false;
+    onSubmit() { this.submitted = true; }
 }

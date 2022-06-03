@@ -1,32 +1,40 @@
-<form class="formulario" autocomplete="off">
+<form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="formulario" name="login" autocomplete="off">
     <h4 style="text-align: center;">Iniciar sesión</h4>
 
     <label for="email">Correo Electronico</label>
-    <input type="email" name="Correo" class="sesion" placeholder="Correo Electronico" min="6" required>
+    <input type="email" name="correo" id="email" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="loginModel.l_correo" #l_correo="ngModel">
 
     <label for="contraseña">Contraseña</label>
-    <input type="password" name="Contraseña" class="sesion" placeholder="Contraseña" min="8" required>
+    <input type="password" name="contrasena" id="contraseña" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="loginModel.l_contrasena" #l_contrasena="ngModel">
 
-    <input type="submit" id="button" value="Iniciar sesión">
+    <input type="submit" name="inicio_sesion" class="button" value="Iniciar sesión">
 
-    <form class="register" autocomplete="off" onsubmit="return RegisterValidate()">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="registrar" name="register" autocomplete="off">
         <h4 style="text-align: center;">Registrarse</h4>
         
         <li>
-            <input type="text" name="Nombre" placeholder="Nombre" pattern="[A-Za-z]{}" required>
-            <input type="text" name="Apellidos" placeholder="Apellidos" pattern="[A-Za-z]{}" required>
+            <input type="text" name="nombre" placeholder="Nombre" required [(ngModel)]="registerModel.r_nombre" #r_nombre="ngModel">
+            <input type="text" name="apellidos" placeholder="Apellidos" required [(ngModel)]="registerModel.r_apellidos" #r_apellidos="ngModel">
         </li>
-
+    
         <li>
-            <input type="email" name="Correo" class="sesion" placeholder="Correo Electronico" min="6"  required>
+            <input type="email" name="correo" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="registerModel.r_correo" #r_correo="ngModel">
         </li>
 
-        <input type="password" name="Contraseña" class="sesion" placeholder="Contraseña" min="8" required>
+        <div *ngIf="r_correo.errors?.['minlength']">
+            El correo debe contener 6 caracteres.
+        </div>
+    
+        <input type="password" name="contrasena" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="registerModel.r_contrasena" #r_contrasena="ngModel">
+    
+        <div *ngIf="r_contrasena.errors?.['minlength']">
+            La contraeña debe contener 8 caracteres.
+        </div>
 
         <li>
             <label for="fecha">Fecha de Nacimiento</label>
-            <input type="date" name="Fecha" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required>
-            <input type="submit" id="button" value="Registrarse">
+            <input type="date" name="fecha" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required [(ngModel)]="registerModel.r_fecha" #r_fecha="ngModel">
+            <input type="submit" name="registrarse" class="button" value="Registrarse">
         </li>
     </form>
 </form>
