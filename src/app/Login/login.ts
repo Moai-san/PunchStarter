@@ -1,6 +1,15 @@
 import {Component} from '@angular/core';
 import { UserLogin } from "./userLogin";
 import { UserRegister } from "./userRegister";
+import usersData from '../../assets/users.json'; 
+
+interface User {  
+    name: String;
+    surname: String;
+    mail: String;
+    password: String;
+    bDate: String;
+}
 
 @Component(
 {
@@ -12,6 +21,9 @@ export class login
 {
     loginModel = new UserLogin('', '');
     registerModel = new UserRegister('', '', '', '', '');
-    submitted = false;
-    onSubmit() { this.submitted = true; }
+    loginsubmitted = false;
+    loginOnSubmit() { this.loginsubmitted = true; }
+    registersubmitted = false;
+    registerOnSubmit() { this.registersubmitted = true; }
+    users: User[] = usersData;
 }

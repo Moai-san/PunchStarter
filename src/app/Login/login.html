@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="formulario" name="login" autocomplete="off">
+<form (ngSubmit)="loginOnSubmit()" #loginForm="ngForm" class="formulario" name="login" autocomplete="off">
     <h4 style="text-align: center;">Iniciar sesión</h4>
 
     <label for="email">Correo Electronico</label>
@@ -7,34 +7,42 @@
     <label for="contraseña">Contraseña</label>
     <input type="password" name="contrasena" id="contraseña" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="loginModel.l_contrasena" #l_contrasena="ngModel">
 
-    <input type="submit" name="inicio_sesion" class="button" value="Iniciar sesión">
-
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="registrar" name="register" autocomplete="off">
-        <h4 style="text-align: center;">Registrarse</h4>
-        
-        <li>
-            <input type="text" name="nombre" placeholder="Nombre" required [(ngModel)]="registerModel.r_nombre" #r_nombre="ngModel">
-            <input type="text" name="apellidos" placeholder="Apellidos" required [(ngModel)]="registerModel.r_apellidos" #r_apellidos="ngModel">
-        </li>
-    
-        <li>
-            <input type="email" name="correo" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="registerModel.r_correo" #r_correo="ngModel">
-        </li>
-
-        <div *ngIf="r_correo.errors?.['minlength']">
-            El correo debe contener 6 caracteres.
+    <button type="submit" name="inicio_sesion" class="button">Iniciar sesión</button>
+    <div *ngIf="loginsubmitted">
+        <div *ngFor="let user of users">
+            <div *ngIf="user.mail==l_correo.value">
+                <p *ngIf="user.password==l_contrasena.value;else wPassword">Inicio de sesion exitoso</p>
+                <ng-template #wPassword> Contraseña invalida</ng-template>
+            </div>
         </div>
-    
-        <input type="password" name="contrasena" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="registerModel.r_contrasena" #r_contrasena="ngModel">
-    
-        <div *ngIf="r_contrasena.errors?.['minlength']">
-            La contraeña debe contener 8 caracteres.
-        </div>
+    </div>
+</form>
 
-        <li>
-            <label for="fecha">Fecha de Nacimiento</label>
-            <input type="date" name="fecha" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required [(ngModel)]="registerModel.r_fecha" #r_fecha="ngModel">
-            <input type="submit" name="registrarse" class="button" value="Registrarse">
-        </li>
-    </form>
+<form (ngSubmit)="registerOnSubmit()" #registerForm="ngForm" class="formulario registrar" name="register" autocomplete="off">
+    <h4 style="text-align: center;">Registrarse</h4>
+    
+    <li>
+        <input type="text" name="nombre" placeholder="Nombre" required [(ngModel)]="registerModel.r_nombre" #r_nombre="ngModel">
+        <input type="text" name="apellidos" placeholder="Apellidos" required [(ngModel)]="registerModel.r_apellidos" #r_apellidos="ngModel">
+    </li>
+
+    <li>
+        <input type="email" name="correo" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="registerModel.r_correo" #r_correo="ngModel">
+    </li>
+
+    <div *ngIf="r_correo.errors?.['minlength']">
+        El correo debe contener 6 caracteres.
+    </div>
+
+    <input type="password" name="contrasena" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="registerModel.r_contrasena" #r_contrasena="ngModel">
+
+    <div *ngIf="r_contrasena.errors?.['minlength']">
+        La contraeña debe contener 8 caracteres.
+    </div>
+
+    <li>
+        <label for="fecha">Fecha de Nacimiento</label>
+        <input type="date" name="fecha" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required [(ngModel)]="registerModel.r_fecha" #r_fecha="ngModel">
+        <button type="submit" name="registrarse" class="button">Registrarse</button>
+    </li>
 </form>
