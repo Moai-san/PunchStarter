@@ -6,7 +6,6 @@ Informe: https://drive.google.com/file/d/1K_EaO4d2delsXM4azAVGXdkiDzauNjQl/view?
 Integrantes:
   Leonardo Gonzalez
   Nicolas Lagos
-  Felipe Santis <- Despues de EP3 no pertenece al grupo (en EP3 si)
   
 # Progreso
 Proyecto utiliza HTML (Junto al framework BootStrap), Javascript (En su mayoría con los frameworks Angular y Typescript), y SASS-CSS (SCSS).
