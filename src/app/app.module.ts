@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { contactus } from './Contactus';
 import { donaciones } from './Donaciones';
 import { aboutus } from './Aboutus';
 import { login } from './Login';
+import { SoloAdminComponent } from './solo-admin/solo-admin';
 
 
 
@@ -20,6 +22,7 @@ import { login } from './Login';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule
   ],
   declarations:
   [
@@ -30,7 +33,8 @@ import { login } from './Login';
     contactus,
     donaciones,
     aboutus,
-    login
+    login,
+    SoloAdminComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
