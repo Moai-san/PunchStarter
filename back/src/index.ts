@@ -61,34 +61,41 @@ app.get('/usuarios/:id',(req:any,res:any)=>{
     });
 });
 
-app.post('/LogIn', bodyParser.json(), function(request:any, response:any) {
+app.post('/LogIn', bodyParser.json(), function(request:any, response:any)
+{
 	let mail = request.body.mail;
 	let password = request.body.password;
     console.log(mail, password);
-	if (mail && password) {
-		pool.query("SELECT * FROM public.users WHERE mail = ?", [mail], async function(error:any, results:any, fields:any) {
-            console.log(error);
-            if(results != undefined){
-                console.log("aasdsad");
-                if(password == results.password){
-                    if (results.length > 0) {
-                        response.send(JSON.stringify(results));
-                    } 
-                }else{
-                response.send("F");
-                response.end();
-                }
+	if (mail && password)
+    {
+		pool.query("SELECT * FROM public.users WHERE mail = $1 and password = crypt($2, password)", [mail, password], async function(error:any, results:any, fields:any)
+        {
+            if(results != undefined)
+            {
+                response.send(results.rows[0]);
             }
-            else{
-                response.send("F");
+            else
+            {
+                response.send(JSON.stringify("Que esta pasando aqui"));
             }
-                response.end();
+
+            response.end();
             });
-	} else {
-		response.send("F");
+	}
+    else
+    {
+		response.send(JSON.stringify("Que esta pasando aqui"));
 		response.end();
 	}
 });
+
+// Desinscribir usuarios
+app.delete('/borrar/:id',(req:any,res:any)=>{
+    let id=req.params.id;
+    pool.query('DELETE FROM usuarios WHERE id=?',id,(res1:any,resultados:any)=>{
+     res.status(200).send("dato eliminado");
+    });
+})
 
 
 //insertar [nombre ,correoelectronico,clave]
