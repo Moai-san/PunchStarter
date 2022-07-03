@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: '5440',
+    password: 'pandora',
     database: 'punchstarter',
     port: '5432'
 });
@@ -59,6 +59,35 @@ app.get('/usuarios/:id',(req:any,res:any)=>{
     pool.query("SELECT * FROM public.users WHERE id=?",id,(req1:any,resultados:any)=>{
        res.status(200).send(resultados);
     });
+});
+
+app.post('/LogIn', bodyParser.json(), function(request:any, response:any) {
+	let mail = request.body.mail;
+	let password = request.body.password;
+    console.log(mail, password);
+	if (mail && password) {
+		pool.query("SELECT * FROM public.users WHERE mail = ?", [mail], async function(error:any, results:any, fields:any) {
+            console.log(error);
+            if(results != undefined){
+                console.log("aasdsad");
+                if(password == results.password){
+                    if (results.length > 0) {
+                        response.send(JSON.stringify(results));
+                    } 
+                }else{
+                response.send("F");
+                response.end();
+                }
+            }
+            else{
+                response.send("F");
+            }
+                response.end();
+            });
+	} else {
+		response.send("F");
+		response.end();
+	}
 });
 
 

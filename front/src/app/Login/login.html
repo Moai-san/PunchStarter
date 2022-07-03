@@ -1,21 +1,21 @@
-<form (ngSubmit)="loginOnSubmit()" #loginForm="ngForm" class="formulario" name="login" autocomplete="off">
+<form *ngIf="!getSesionIniciada()" (ngSubmit)="loginOnSubmit()" [formGroup]="formularioLogIn" class="formulario" name="login" autocomplete="off" novalidate>
     <h4 style="text-align: center;">Iniciar sesión</h4>
 
     <label for="email">Correo Electronico</label>
-    <input type="email" name="correo" id="email" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="loginModel.l_correo" #l_correo="ngModel">
+    <input type="email" formControlName="mail" id="email" class="sesion" placeholder="Correo Electronico" minlength="6" required>
 
     <label for="contraseña">Contraseña</label>
-    <input type="password" name="contrasena" id="contraseña" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="loginModel.l_contrasena" #l_contrasena="ngModel">
+    <input type="password" formControlName="password" id="contraseña" class="sesion" placeholder="Contraseña" minlength="8" required>
 
     <button type="submit" name="inicio_sesion" class="button">Iniciar sesión</button>
-    <div *ngIf="loginsubmitted">
+    <!--<div *ngIf="loginsubmitted">
         <div *ngFor="let user of users">
             <div *ngIf="user.mail==l_correo.value">
                 <p *ngIf="user.password==l_contrasena.value;else wPassword">Inicio de sesion exitoso</p>
                 <ng-template #wPassword> Contraseña invalida</ng-template>
             </div>
         </div>
-    </div>
+    </div>-->
 </form>
 
 <form (ngSubmit)="registerOnSubmit()" #registerForm="ngForm" class="formulario registrar" name="register" autocomplete="off">

@@ -1,3 +1,12 @@
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
@@ -7,7 +16,7 @@ const bodyParser = require('body-parser');
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: '5440',
+    password: 'pandora',
     database: 'punchstarter',
     port: '5432'
 });
@@ -50,6 +59,38 @@ app.get('/usuarios/:id', (req, res) => {
     pool.query("SELECT * FROM public.users WHERE id=?", id, (req1, resultados) => {
         res.status(200).send(resultados);
     });
+});
+app.post('/LogIn', bodyParser.json(), function (request, response) {
+    let mail = request.body.mail;
+    let password = request.body.password;
+    console.log(mail, password);
+    if (mail && password) {
+        pool.query("SELECT * FROM public.users WHERE mail = ?", [mail], function (error, results, fields) {
+            return __awaiter(this, void 0, void 0, function* () {
+                console.log(error);
+                if (results != undefined) {
+                    console.log("aasdsad");
+                    if (password == results.password) {
+                        if (results.length > 0) {
+                            response.send(JSON.stringify(results));
+                        }
+                    }
+                    else {
+                        response.send("F");
+                        response.end();
+                    }
+                }
+                else {
+                    response.send("F");
+                }
+                response.end();
+            });
+        });
+    }
+    else {
+        response.send("F");
+        response.end();
+    }
 });
 //insertar [nombre ,correoelectronico,clave]
 app.post('/crearUsuarios', (req, res) => {

@@ -1,10 +1,10 @@
-import { HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 const HttpOption = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +17,10 @@ export class UsuariosService {
 
   ConsultarUsuarios():Observable<any>{
     return this.servicio.get(`${this.servidor}/usuarios`);
+  }
+
+  postInicioS(datos:any):Observable<any>{
+    console.log(datos);
+    return this.servicio.post(`${this.servidor}/LogIn`,JSON.stringify(datos), HttpOption);
   }
 }
