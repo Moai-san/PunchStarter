@@ -15,10 +15,9 @@ export class SoloAdminComponent implements OnInit {
   ngOnInit(): void {
     this.servicioUsuarios.ConsultarUsuarios().subscribe(datos=>{
       for(let i=0; i<datos.length; i++){
-        this.usuarios.push(datos[i]);
+        this.usuarios.push((datos.rows[i]));
+        console.log(datos);
       }
-
-      console.log(datos);
     });
   }
 

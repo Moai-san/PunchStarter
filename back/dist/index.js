@@ -39,9 +39,9 @@ app.get('/', (req, res) => {
 });
 app.get('/usuarios', (req, res) => {
     pool.query("SELECT * FROM public.users", (req1, resultados) => {
-        console.log("resultados");
+        console.log(resultados.rows);
         //res.send(resultados);
-        res.status(200).send(resultados);
+        res.status(200).send(resultados.rows);
     });
 });
 app.get('/usuarios/:id', (req, res) => {

@@ -1,18 +1,26 @@
-<table>
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombres</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fecha de Nacimiento</th>
+            <th scope="col">Contraseña</th>
+        </tr>
+    </thead>
     <tr>
-        <th>Id</th>
-        <th>Nombres</th>
-        <th>Apellidos</th>
-        <th>Email</th>
-        <th>Fecha de Nacimiento</th>
-        <th>Contraseña</th>
+        <td>BBBBBBBB</td>
     </tr>
-    <tr *ngFor="let item of usuarios">
-        <td>{{item.id}}</td>
-        <td>{{item.mail}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.surname}}</td>
-        <td>{{item.bdate}}</td>
-        <td>{{item.password}}</td>
-    </tr>
+    <td>AAAAAA</td>
+    <div >
+        <!--<td scope="row">{{item}}</td>-->
+        <td scope="row">{{usuarios[1].mail}}</td>
+        <td scope="row">{{usuarios[1].name}}</td>
+        <td scope="row">{{usuarios[1].surname}}</td>
+        <td scope="row">{{usuarios[1].bdate}}</td>
+        <td scope="row">{{usuarios[1].password}}</td>
+        <td>Aa</td>
+    </div>
 </table>

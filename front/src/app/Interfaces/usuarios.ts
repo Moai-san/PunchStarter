@@ -1,10 +1,10 @@
 export interface Usuarios {
 
-    id: number;
-    mail: string;
-    name: string;
-    surname: string;
+    id: Number;
+    mail: String;
+    name: String;
+    surname: String;
     bdate: Date;
-    password: string;
+    password: String;
 }
 
