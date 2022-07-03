@@ -12,7 +12,8 @@ import { contactus } from './Contactus';
 import { donaciones } from './Donaciones';
 import { aboutus } from './Aboutus';
 import { login } from './Login';
-import { SoloAdminComponent } from './solo-admin/solo-admin';
+import { SoloAdminComponent } from './solo-admin';
+import { homepage } from './Home';
 
 
 
@@ -35,6 +36,7 @@ import { SoloAdminComponent } from './solo-admin/solo-admin';
     donaciones,
     aboutus,
     login,
+    homepage,
     SoloAdminComponent
   ],
   providers: [],

@@ -18,7 +18,7 @@
     </div>-->
 </form>
 
-<form (ngSubmit)="registerOnSubmit()" #registerForm="ngForm" class="formulario registrar" name="register" autocomplete="off">
+<form *ngIf="!getSesionIniciada()" (ngSubmit)="registerOnSubmit()" #registerForm="ngForm" class="formulario registrar" name="register" autocomplete="off">
     <h4 style="text-align: center;">Registrarse</h4>
     
     <li>

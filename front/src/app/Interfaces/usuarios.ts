@@ -6,5 +6,6 @@ export interface Usuarios {
     surname: String;
     bdate: Date;
     password: String;
+    isAdmin: Boolean;
 }
 

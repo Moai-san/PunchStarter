@@ -76,7 +76,7 @@ app.post('/LogIn', bodyParser.json(), function(request:any, response:any)
             }
             else
             {
-                response.send(JSON.stringify("Que esta pasando aqui"));
+                response.send(null);
             }
 
             response.end();
