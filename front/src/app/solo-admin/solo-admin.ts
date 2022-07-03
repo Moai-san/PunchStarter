@@ -15,7 +15,6 @@ export class SoloAdminComponent implements OnInit {
     this.servicioUsuarios.ConsultarUsuarios().subscribe(datos=>{
       for(let i=0; i<datos.length; i++){
         this.usuarios.push(datos[i]);
-        console.log(this.usuarios[0],"aaaaaaaaaaaaaaaaaaaaaaaaaaa");
       }
     });
   }

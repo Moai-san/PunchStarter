@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
     res.send("hola mundo");
 });
 app.get('/usuarios', (req, res) => {
-    pool.query("SELECT * FROM public.users", (req1, resultados) => {
+    pool.query("SELECT * FROM public.users ORDER BY id ASC", (req1, resultados) => {
         console.log(resultados.rows);
         //res.send(resultados);
         res.status(200).send(resultados.rows);

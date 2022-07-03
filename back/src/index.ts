@@ -46,7 +46,7 @@ app.get('/',(req:any,res:any)=>{
 });
 
 app.get('/usuarios',(req:any,res:any)=>{  //Metodo usado para la pagina solo-admin, pide todos los usuarios y los devuelve
-      pool.query("SELECT * FROM public.users",(req1:any,resultados:any)=>{
+      pool.query("SELECT * FROM public.users ORDER BY id ASC",(req1:any,resultados:any)=>{
           console.log(resultados.rows);
           //res.send(resultados);
           res.status(200).send(resultados.rows);
