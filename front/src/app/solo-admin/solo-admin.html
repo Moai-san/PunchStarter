@@ -1,26 +1,20 @@
-
-<table class="table table-primary">
-    <thead>
-        <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Nombres</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Email</th>
-            <th scope="col">Fecha de Nacimiento</th>
-            <th scope="col">Contraseña</th>
-        </tr>
-    </thead>
-    <tr>
-        <td>BBBBBBBB</td>
-    </tr>
-    <td>AAAAAA</td>
-    <div >
-        <!--<td scope="row">{{item}}</td>-->
-        <td scope="row">{{usuarios[1].mail}}</td>
-        <td scope="row">{{usuarios[1].name}}</td>
-        <td scope="row">{{usuarios[1].surname}}</td>
-        <td scope="row">{{usuarios[1].bdate}}</td>
-        <td scope="row">{{usuarios[1].password}}</td>
-        <td>Aa</td>
-    </div>
-</table>
+<div class="fluid-container">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombres</th>
+                <th scope="col">Apellidos</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of usuarios">
+                <td scope="row">{{item.id}}</td>
+                <td scope="row">{{item.name}}</td>
+                <td scope="row">{{item.surname}}</td>
+                <td scope="row">{{item.mail}}</td>
+            </tr>
+        </tbody>
+    </table>    
+</div>

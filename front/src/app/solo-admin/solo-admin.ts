@@ -6,17 +6,16 @@ import { Usuarios } from '../Interfaces/usuarios';
   templateUrl: './solo-admin.html',
   styleUrls: ['./solo-admin.scss']
 })
+
 export class SoloAdminComponent implements OnInit {
-
-  usuarios:Array<Usuarios> = [];
-  
-  constructor(private servicioUsuarios:UsuariosService) { }
-
-  ngOnInit(): void {
+  usuarios:Array<Usuarios> =[];
+  constructor(private servicioUsuarios:UsuariosService) {
+   }
+   ngOnInit(): void {
     this.servicioUsuarios.ConsultarUsuarios().subscribe(datos=>{
       for(let i=0; i<datos.length; i++){
-        this.usuarios.push((datos.rows[i]));
-        console.log(datos);
+        this.usuarios.push(datos[i]);
+        console.log(this.usuarios[0],"aaaaaaaaaaaaaaaaaaaaaaaaaaa");
       }
     });
   }

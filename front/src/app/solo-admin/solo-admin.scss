@@ -1,3 +1,12 @@
-table{
-    margin-top: 20%;
+div
+{
+    position: relative;
+    margin-top: 5%;
+    table
+    {
+        position: absolute;
+        width: 40%;
+        left: 30%;
+        right: 30%;
+    }
 }
