@@ -1,0 +1,76 @@
+
+p{
+    color:rgb(255, 255, 255);
+    text-align: justify;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.content{
+    padding-top: 5%;
+    background-color: #282c34;
+}
+
+
+
+.img_container{
+    width: 15%;
+    height: 20%;
+    margin-top: .5%;
+
+}
+
+.buttons_container{
+
+    margin-top: 3%;
+    width: 4%;
+    
+}
+
+.logo{
+    display:block;
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.col1{
+    background-image:url(../../assets/Images/about_felipe_santis.gif);
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.col2{
+    background-image:url(../../assets/Images/about_leonardo_gonzalez.png);
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.col3{
+    background-image:url(../../assets/Images/about_nicolas_lagos.png);
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 100%;
+}
+
+.hvtxt{
+    background-color: #5f0c96;
+    opacity: 0;
+    border-radius: 100%;
+    transition: .5s ease;
+    text-align: center;
+}
+
+.hvtxt:hover{
+    opacity: 1;
+}
+
+.name{
+    color: white;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: large;
+    text-align: center;
+
+}
