@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Output} from '@angular/core';
 import { UserLogin } from "./userLogin";
 import { UserRegister } from "./userRegister";
 import { FormGroup } from '@angular/forms';
@@ -23,33 +23,45 @@ interface User {
 export class login
 {
     formularioLogIn: FormGroup;
+    formularioRegister: FormGroup;
     loginModel = new UserLogin('', '');
+    registerModel = new UserRegister('', '', '', '', '');
     usuarioIngresado:boolean = false;
-    isAdmin:boolean = false;
+    static isAdmin:boolean = false;
 
     constructor(public formL:FormBuilder, public backEnd:UsuariosService){
         this.formularioLogIn=this.formL.group({
             mail: "",
             password: ""
         })
+
+        this.formularioRegister=this.formL.group({
+          name: "",
+          surname: "",
+          mail: "",
+          password: "",
+          bdate: "",
+      })
     }
 
-    loginsubmitted = false;
-
     public loginOnSubmit(){
-        
         this.backEnd.postInicioS({          
           "mail":this.formularioLogIn.get("mail")?.value,
           "password":this.formularioLogIn.get("password")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
-            this.isAdmin = respuesta.isAdmin;
+            login.isAdmin = respuesta.isAdmin;
             this.setSesionIniciada(true); 
           }else{
             window.alert("Datos incorrectos, verifique su correo o contraseña")
           }
         });
     }
+
+    public registerOnSubmit(){
+      this.backEnd.putRegistroS;
+    }
+
     public setSesionIniciada(valor:boolean)
     {
       this.usuarioIngresado = valor;
@@ -59,12 +71,10 @@ export class login
       return this.usuarioIngresado;
     }
 
+    public userIsAdmin(){
+      return login.isAdmin;
+    }
 
-
-
-
-
-    registerModel = new UserRegister('', '', '', '', '');
-    registersubmitted = false;
-    registerOnSubmit() { this.registersubmitted = true; }
 }
+
+export function userIsAdmin() {return login.isAdmin;}

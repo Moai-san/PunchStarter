@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import { login, userIsAdmin } from "../Login/login";
 
 @Component(
 {
@@ -9,5 +10,5 @@ import {Component} from '@angular/core';
 })
 export class menu
 {
-    
+    isAdmin:boolean = userIsAdmin();
 }

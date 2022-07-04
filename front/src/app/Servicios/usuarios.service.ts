@@ -20,7 +20,10 @@ export class UsuariosService {
   }
 
   postInicioS(datos:any):Observable<any>{
-    console.log(datos);
     return this.servicio.post(`${this.servidor}/LogIn`,JSON.stringify(datos), HttpOption);
+  }
+
+  putRegistroS(datos:any):Observable<any>{
+    return this.servicio.put(`${this.servidor}/LogIn`,JSON.stringify(datos), HttpOption);
   }
 }
