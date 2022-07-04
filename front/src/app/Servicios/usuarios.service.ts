@@ -24,6 +24,6 @@ export class UsuariosService {
   }
 
   putRegistroS(datos:any):Observable<any>{
-    return this.servicio.put(`${this.servidor}/LogIn`,JSON.stringify(datos), HttpOption);
+    return this.servicio.post(`${this.servidor}/crearUsuarios`,JSON.stringify(datos), HttpOption);
   }
 }

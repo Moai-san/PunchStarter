@@ -59,7 +59,20 @@ export class login
     }
 
     public registerOnSubmit(){
-      this.backEnd.putRegistroS;
+        this.backEnd.putRegistroS({
+          "name":this.formularioRegister.get("name")?.value,
+          "surname":this.formularioRegister.get("surname")?.value,
+          "mail":this.formularioRegister.get("mail")?.value,
+          "password":this.formularioRegister.get("password")?.value,
+          "bdate":this.formularioRegister.get("bdate")?.value
+        }).subscribe(respuesta=>{
+          if(respuesta != null){
+            login.isAdmin = false;
+            this.setSesionIniciada(true); 
+          }else{
+            window.alert("Datos incorrectos, verifique los datos de registro")
+          }
+        });
     }
 
     public setSesionIniciada(valor:boolean)

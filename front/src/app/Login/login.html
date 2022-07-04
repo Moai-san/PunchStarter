@@ -18,31 +18,31 @@
     </div>-->
 </form>
 
-<form *ngIf="!getSesionIniciada()" (ngSubmit)="registerOnSubmit()" #registerForm="ngForm" class="formulario registrar" name="register" autocomplete="off" novalidate>
+<form *ngIf="!getSesionIniciada()" (ngSubmit)="registerOnSubmit()" [formGroup]="formularioRegister" class="formulario registrar" name="register" autocomplete="off" novalidate>
     <h4 style="text-align: center;">Registrarse</h4>
     
     <li>
-        <input type="text" name="nombre" placeholder="Nombre" required [(ngModel)]="registerModel.r_nombre" #r_nombre="ngModel">
-        <input type="text" name="apellidos" placeholder="Apellidos" required [(ngModel)]="registerModel.r_apellidos" #r_apellidos="ngModel">
+        <input type="text" formControlName="name" placeholder="Nombre" required>
+        <input type="text" formControlName="surname" placeholder="Apellidos" required>
     </li>
 
     <li>
-        <input type="email" name="correo" class="sesion" placeholder="Correo Electronico" minlength="6" required [(ngModel)]="registerModel.r_correo" #r_correo="ngModel">
+        <input type="email" formControlName="mail" class="sesion" placeholder="Correo Electronico" minlength="6" required>
     </li>
 
-    <div *ngIf="r_correo.errors?.['minlength']">
+    <!---<div *ngIf="mail.['minlength']">
         El correo debe contener 6 caracteres.
-    </div>
+    </div>-->
 
-    <input type="password" name="contrasena" class="sesion" placeholder="Contraseña" minlength="8" required [(ngModel)]="registerModel.r_contrasena" #r_contrasena="ngModel">
+    <input type="password" formControlName="password" class="sesion" placeholder="Contraseña" minlength="8" required>
 
-    <div *ngIf="r_contrasena.errors?.['minlength']">
+    <!---<div *ngIf="r_contrasena.errors?.['minlength']">
         La contraeña debe contener 8 caracteres.
-    </div>
+    </div>--->
 
     <li>
         <label for="fecha">Fecha de Nacimiento</label>
-        <input type="date" name="fecha" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required [(ngModel)]="registerModel.r_fecha" #r_fecha="ngModel">
+        <input type="date" formControlName="bdate" id="fecha" placeholder="Fecha de Nacimiento" max="2022-06-03" required>
         <button type="submit" name="registrarse" class="button">Registrarse</button>
     </li>
 </form>

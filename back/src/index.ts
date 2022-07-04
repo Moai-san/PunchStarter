@@ -31,36 +31,17 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
-
-//
-//
-//
-//  REVISAR TODO LO DE ABAJO, FALTA AGREGAR METODOS CRUD
-//
-//
-//
-//
 //métodos CRUD=Create ==post, Read==get, Update==put, Delete==delete
-app.get('/',(req:any,res:any)=>{
-    res.send("hola mundo");
-});
 
-app.get('/usuarios',(req:any,res:any)=>{  //Metodo usado para la pagina solo-admin, pide todos los usuarios y los devuelve
+//Metodo usado para la pagina solo-admin, crea una tabla con todos los usuarios en la base de datos
+app.get('/usuarios',(req:any,res:any)=>{
       pool.query("SELECT * FROM public.users ORDER BY id ASC",(req1:any,resultados:any)=>{
           console.log(resultados.rows);
-          //res.send(resultados);
           res.status(200).send(resultados.rows);
       });
 });
 
-app.get('/usuarios/:id',(req:any,res:any)=>{
-    let id=req.params.id;
-    console.log(id);
-    pool.query("SELECT * FROM public.users WHERE id=?",id,(req1:any,resultados:any)=>{
-       res.status(200).send(resultados);
-    });
-});
-
+//Metodo usado para iniciar sesion, verifica los datos con la base de datos
 app.post('/LogIn', bodyParser.json(), function(request:any, response:any)
 {
 	let mail = request.body.mail;
@@ -89,59 +70,40 @@ app.post('/LogIn', bodyParser.json(), function(request:any, response:any)
 	}
 });
 
+//Metodo usado para el registro de usuarios
+app.post('/crearUsuarios',(req:any,res:any)=>{
+    let name=req.body.name;
+    let surname=req.body.surname;
+    let mail=req.body.mail;
+    let password=req.body.password;
+    let bdate=req.body.bdate;
+
+    pool.query("INSERT INTO public.users (name, surname, mail, password, bdate) VALUES ($1,$2,$3,crypt($4, gen_salt('bf')),$5)",[name,surname,mail,password,bdate],(req1:any,resultados:any)=>{
+
+        res.status(201).send(resultados);
+    });
+});
+
+//METODOS QUE SE TIENEN QUE IMPLEMENTAR --------------------------------------------------------------
+
 // Desinscribir usuarios
 app.delete('/borrar/:id',(req:any,res:any)=>{
     let id=req.params.id;
-    pool.query('DELETE FROM usuarios WHERE id=?',id,(res1:any,resultados:any)=>{
-     res.status(200).send("dato eliminado");
+    pool.query('DELETE FROM public.users WHERE id=$1',[id],(res1:any,resultados:any)=>{
+     res.status(200).send(resultados);
     });
 })
-
-
-//insertar [nombre ,correoelectronico,clave]
-app.post('/crearUsuarios',(req:any,res:any)=>{
-     let nombre=req.body.nombre;
-     let correoeletronico=req.body.correoelectronico;
-     let clave=req.body.clave;
-
-
-     console.log(nombre);
-
-     pool.query("INSERT INTO usuarios(nombre,correo_electronico,contrasena)VALUES('"+nombre+"','"+correoeletronico+"','"+clave+"')",(req1:any,resultados:any)=>{
-            
-        res.status(201).send(`Usuario creado con el id:${resultados.insertId}`);
-        //console.log(resultados);
-     });
-});
-
-/*
-app.put('/modificarusuario/:idUsuario',(req:any,res:any)=>{
-     let id=req.params.idUsuario;
-     let nombre=req.body.nombre;
-     
-     connection.query("UPDATE usuarios SET nombre=? WHERE id=?",[nombre,id],(req1:any,resultados:any)=>{
-         res.status(200).send("OK actualizado");
-     });
-});
-*/
 
 app.put('/modificarusuario',(req:any,res:any)=>{
     let id=req.body.idUsuario;
     let nombre=req.body.nombre;
 
-    pool.query("UPDATE usuarios SET nombre=? WHERE id=?",[nombre,id],(req1:any,resultados:any)=>{
-        res.status(200).send("OK actualizado");
+    pool.query("UPDATE public.users SET nombre=$1 WHERE id=$2",[nombre,id],(req1:any,resultados:any)=>{
+        res.status(200).send(resultados);
     });
 });
 
-app.delete('/borrar/:id',(req:any,res:any)=>{
-    let id=req.params.id;
-    pool.query('DELETE FROM usuarios WHERE id=?',id,(res1:any,resultados:any)=>{
-     res.status(200).send("dato eliminado");
-    });
-})
-
-
+//-----------------------------------------------------------------------------------------------------
 
 app.listen(Configuracion,()=>{
     console.log(`servidor escuchando ${Configuracion.server}:${Configuracion.port}`);
