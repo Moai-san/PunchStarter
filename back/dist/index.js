@@ -16,7 +16,7 @@ const bodyParser = require('body-parser');
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: '5440',
+    password: 'pandora',
     database: 'punchstarter',
     port: '5432'
 });
@@ -78,7 +78,7 @@ app.post('/crearUsuarios', (req, res) => {
 });
 //METODOS QUE SE TIENEN QUE IMPLEMENTAR --------------------------------------------------------------
 // Desinscribir usuarios
-app.delete('/borrar/:id', (req, res) => {
+app.delete('/eliminarUsuarios', (req, res) => {
     let id = req.params.id;
     pool.query('DELETE FROM public.users WHERE id=$1', [id], (res1, resultados) => {
         res.status(200).send(resultados);

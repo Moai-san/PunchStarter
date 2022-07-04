@@ -9,6 +9,8 @@ import { Usuarios } from '../Interfaces/usuarios';
 
 export class SoloAdminComponent implements OnInit {
   usuarios:Array<Usuarios> =[];
+  toDelete:Array<Boolean> =[];
+
   constructor(private servicioUsuarios:UsuariosService) {
    }
    ngOnInit(): void {
@@ -17,6 +19,18 @@ export class SoloAdminComponent implements OnInit {
         this.usuarios.push(datos[i]);
       }
     });
+  }
+
+  eliminarId(): void{
+
+  }
+
+  addToDelete(n:any): void{
+
+    this.toDelete.push(n.value);
+
+
+    console.log(this.toDelete)
   }
 
 }

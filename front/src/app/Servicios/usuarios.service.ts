@@ -19,6 +19,10 @@ export class UsuariosService {
     return this.servicio.get(`${this.servidor}/usuarios`);
   }
 
+  EliminarUsuarios():Observable<any>{
+    return this.servicio.delete(`${this.servidor}/eliminarUsuarios`, HttpOption); //Probablemente necesite JSON.stringify(datos)
+  }
+
   postInicioS(datos:any):Observable<any>{
     return this.servicio.post(`${this.servidor}/LogIn`,JSON.stringify(datos), HttpOption);
   }
