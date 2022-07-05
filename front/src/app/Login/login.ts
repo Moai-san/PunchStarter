@@ -1,18 +1,9 @@
-import {Component, Output} from '@angular/core';
-import { UserLogin } from "./userLogin";
-import { UserRegister } from "./userRegister";
+import {Component} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { UsuariosService } from '../Servicios/usuarios.service';
+import { loginVars } from './loginVars'
 
-interface User {  
-    name: String;
-    surname: String;
-    mail: String;
-    password: String;
-    bDate: String;
-    isAdmin: Boolean;
-}
 
 @Component(
 {
@@ -20,15 +11,12 @@ interface User {
     styleUrls: ['./login.scss']
 
 })
+
 export class login
 {
     formularioLogIn: FormGroup;
     formularioRegister: FormGroup;
-    loginModel = new UserLogin('', '');
-    registerModel = new UserRegister('', '', '', '', '');
-    usuarioIngresado:boolean = false;
-    static isAdmin:boolean = false;
-
+    
     constructor(public formL:FormBuilder, public backEnd:UsuariosService){
         this.formularioLogIn=this.formL.group({
             mail: "",
@@ -50,8 +38,8 @@ export class login
           "password":this.formularioLogIn.get("password")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
-            login.isAdmin = respuesta.isAdmin;
-            this.setSesionIniciada(true); 
+            loginVars.setIsAdmin(respuesta.isAdmin);
+            loginVars.setIsLogged(true); 
           }else{
             window.alert("Datos incorrectos, verifique su correo o contraseña")
           }
@@ -67,27 +55,17 @@ export class login
           "bdate":this.formularioRegister.get("bdate")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
-            login.isAdmin = false;
-            this.setSesionIniciada(true); 
+            loginVars.setIsAdmin(false);
+            loginVars.setIsLogged(true); 
           }else{
             window.alert("Datos incorrectos, verifique los datos de registro")
           }
         });
     }
 
-    public setSesionIniciada(valor:boolean)
+    public getSesionIniciada()
     {
-      this.usuarioIngresado = valor;
-    }
-
-    public getSesionIniciada(){
-      return this.usuarioIngresado;
-    }
-
-    public userIsAdmin(){
-      return login.isAdmin;
+      return (loginVars.getIsLogged());
     }
 
 }
-
-export function userIsAdmin() {return login.isAdmin;}

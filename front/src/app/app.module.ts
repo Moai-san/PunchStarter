@@ -16,7 +16,6 @@ import { SoloAdminComponent } from './solo-admin';
 import { homepage } from './Home';
 
 
-
 @NgModule({
   imports:
   [

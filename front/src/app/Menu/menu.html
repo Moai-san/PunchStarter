@@ -7,10 +7,11 @@
     </span>
 </label>
 <nav id="menu">
-    <a href="./login">Iniciar Sesion</a>
+    <a *ngIf="!getUserLogged()" href="./login">Iniciar Sesion</a>
     <a href="./aboutus">Sobre Nosotros</a>
     <a href="./terms">Terminos & Condiciones</a>
-    <a href="./donateus">Donaciones</a>
-    <a href="./admin">Zona de Admins</a>
-    <a href="./notFound">TBD</a>
+    <a *ngIf="getUserLogged()" href="./donateus">Donaciones</a>
+    <a *ngIf="getUserAdmin()" href="./admin">Zona de Admins</a>
+    <a href="./notFound">????</a>
+    <button *ngIf="getUserLogged()" class="button" onclick="setUserLogout()">Cerrar Sesion</button>
 </nav>

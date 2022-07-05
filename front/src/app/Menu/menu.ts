@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import { login, userIsAdmin } from "../Login/login";
+import {Component} from '@angular/core';
+import { loginVars } from '../Login/loginVars';
 
 @Component(
 {
@@ -10,5 +10,18 @@ import { login, userIsAdmin } from "../Login/login";
 })
 export class menu
 {
-    isAdmin:boolean = userIsAdmin();
+    public getUserAdmin()
+    {
+        return (loginVars.getIsAdmin());
+    }
+
+    public getUserLogged()
+    {
+        return (loginVars.getIsLogged());
+    }
+
+    public setUserLogout()
+    {
+        loginVars.setIsLogged(false);
+    }
 }
