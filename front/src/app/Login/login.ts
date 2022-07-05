@@ -38,6 +38,7 @@ export class login
           "password":this.formularioLogIn.get("password")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
+            loginVars.setSessionID((respuesta.mail),(respuesta.name),(respuesta.surname));
             loginVars.setIsAdmin(respuesta.isAdmin);
             loginVars.setIsLogged(true); 
           }else{
@@ -55,6 +56,7 @@ export class login
           "bdate":this.formularioRegister.get("bdate")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
+            loginVars.setSessionID((respuesta.mail),(respuesta.name),(respuesta.surname));
             loginVars.setIsAdmin(false);
             loginVars.setIsLogged(true); 
           }else{
