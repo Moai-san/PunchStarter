@@ -35,8 +35,8 @@ export class SoloAdminComponent implements OnInit {
     this.servicioUsuarios.EliminarUsuarios(
       this.formularioDelete.get("id")?.value
     ).subscribe(respuesta=>{
-      if(respuesta != null){
-
+      if(respuesta != false){
+        window.location.reload();
       }else{
         window.alert("El usuario no se pudo eliminar, compruebe la id del usuario")
       }
