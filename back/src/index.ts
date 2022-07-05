@@ -4,12 +4,15 @@ const cors=require('cors');
 const app=express();
 const bodyParser = require('body-parser');
 
+app.use(cors());
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
 
 // Conexion de backend con base de datos Postgres
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: '5440',
+    password: 'pandora',
     database: 'punchstarter',
     port: '5432'
 });
@@ -21,17 +24,17 @@ const Configuracion={
  
 pool.connect(function(error:any){
     if(error){
-      console.log("no se logro conectar")
+      console.log("No se a logrado conectar con la base de datos")
       return;
     }
-    console.log('conectado a postgres');
+    console.log('Se a conectado a la base de datos postgres');
 });
 
-app.use(cors());
-app.use(express.urlencoded({ extended: false }))
-app.use(express.json())
+app.listen(Configuracion,()=>{
+    console.log(`El servidor esta escuchando en ${Configuracion.server}:${Configuracion.port}`);
+});
 
-//métodos CRUD=Create ==post, Read==get, Update==put, Delete==delete
+
 
 //Metodo usado para la pagina solo-admin, crea una tabla con todos los usuarios en la base de datos
 app.get('/usuarios',(req:any,res:any)=>{
@@ -47,24 +50,19 @@ app.post('/LogIn', bodyParser.json(), function(request:any, response:any)
 	let mail = request.body.mail;
 	let password = request.body.password;
     console.log(mail, password);
-	if (mail && password)
-    {
-		pool.query("SELECT * FROM public.users WHERE mail = $1 and password = crypt($2, password)", [mail, password], async function(error:any, results:any, fields:any)
-        {
-            if(results != undefined)
-            {
+	if (mail && password){
+		pool.query("SELECT * FROM public.users WHERE mail = $1 and password = crypt($2, password)", [mail, password], async function(error:any, results:any, fields:any){
+            if(results != undefined){
                 response.send(results.rows[0]);
             }
-            else
-            {
+            else{
                 response.send(null);
             }
 
             response.end();
             });
 	}
-    else
-    {
+    else{
 		response.send(JSON.stringify("Que esta pasando aqui"));
 		response.end();
 	}
@@ -79,9 +77,23 @@ app.post('/crearUsuarios',(req:any,res:any)=>{
     let bdate=req.body.bdate;
 
     pool.query("INSERT INTO public.users (name, surname, mail, password, bdate) VALUES ($1,$2,$3,crypt($4, gen_salt('bf')),$5)",[name,surname,mail,password,bdate],(req1:any,resultados:any)=>{
-
         res.status(201).send(resultados);
     });
+});
+
+app.put('/modificarClaveUsuarios',(req:any,res:any)=>{
+    let mail=req.body.mail;
+    let actual_password=req.body.actual_password;
+    let new_password=req.body.new_password;
+
+    if(actual_password != new_password){
+        pool.query("UPDATE public.users SET password = crypt($1, gen_salt('bf')) WHERE mail=$2",[new_password, mail],(req1:any,resultados:any)=>{
+        res.status(200).send(resultados);
+    });
+    }
+    else{
+        res.send(null);
+    }
 });
 
 //METODOS QUE SE TIENEN QUE IMPLEMENTAR --------------------------------------------------------------
@@ -93,18 +105,3 @@ app.delete('/eliminarUsuarios',(req:any,res:any)=>{
      res.status(200).send(resultados);
     });
 })
-
-app.put('/modificarusuario',(req:any,res:any)=>{
-    let id=req.body.idUsuario;
-    let nombre=req.body.nombre;
-
-    pool.query("UPDATE public.users SET nombre=$1 WHERE id=$2",[nombre,id],(req1:any,resultados:any)=>{
-        res.status(200).send(resultados);
-    });
-});
-
-//-----------------------------------------------------------------------------------------------------
-
-app.listen(Configuracion,()=>{
-    console.log(`servidor escuchando ${Configuracion.server}:${Configuracion.port}`);
-});

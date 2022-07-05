@@ -12,6 +12,7 @@ import { contactus } from './Contactus';
 import { donaciones } from './Donaciones';
 import { aboutus } from './Aboutus';
 import { login } from './Login';
+import { cambioClave } from "./CambioClave";
 import { SoloAdminComponent } from './solo-admin';
 import { homepage } from './Home';
 
@@ -35,6 +36,7 @@ import { homepage } from './Home';
     donaciones,
     aboutus,
     login,
+    cambioClave,
     homepage,
     SoloAdminComponent
   ],

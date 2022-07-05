@@ -1,0 +1,11 @@
+<form (ngSubmit)="changeOnSubmit()" [formGroup]="formularioCambioClave" class="formulario" name="contrasena" autocomplete="off" novalidate>
+    <h4 style="text-align: center;">Cambiar Contraseña</h4>
+
+    <label for="actual_password">Contraseña Actual</label>
+    <input type="password" formControlName="actual_password" id="actual_password" class="sesion" placeholder="Contraseña actual"required>
+
+    <label for="new_password">Contraseña Nueva</label>
+    <input type="password" formControlName="new_password" id="new_password" class="sesion" placeholder="Contraseña nueva" minlength="8" required>
+
+    <button type="submit" name="cambiar_contraseña" class="button">Cambiar Contraseña</button>
+</form>

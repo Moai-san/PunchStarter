@@ -12,11 +12,14 @@ const { Pool } = require('pg');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 // Conexion de backend con base de datos Postgres
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: '5440',
+    password: 'pandora',
     database: 'punchstarter',
     port: '5432'
 });
@@ -26,15 +29,14 @@ const Configuracion = {
 };
 pool.connect(function (error) {
     if (error) {
-        console.log("no se logro conectar");
+        console.log("No se a logrado conectar con la base de datos");
         return;
     }
-    console.log('conectado a postgres');
+    console.log('Se a conectado a la base de datos postgres');
 });
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-//métodos CRUD=Create ==post, Read==get, Update==put, Delete==delete
+app.listen(Configuracion, () => {
+    console.log(`El servidor esta escuchando en ${Configuracion.server}:${Configuracion.port}`);
+});
 //Metodo usado para la pagina solo-admin, crea una tabla con todos los usuarios en la base de datos
 app.get('/usuarios', (req, res) => {
     pool.query("SELECT * FROM public.users ORDER BY id ASC", (req1, resultados) => {
@@ -76,6 +78,19 @@ app.post('/crearUsuarios', (req, res) => {
         res.status(201).send(resultados);
     });
 });
+app.put('/modificarClaveUsuarios', (req, res) => {
+    let mail = req.body.mail;
+    let actual_password = req.body.actual_password;
+    let new_password = req.body.new_password;
+    if (actual_password != new_password) {
+        pool.query("UPDATE public.users SET password = crypt($1, gen_salt('bf')) WHERE mail=$2", [new_password, mail], (req1, resultados) => {
+            res.status(200).send(resultados);
+        });
+    }
+    else {
+        res.send(null);
+    }
+});
 //METODOS QUE SE TIENEN QUE IMPLEMENTAR --------------------------------------------------------------
 // Desinscribir usuarios
 app.delete('/eliminarUsuarios', (req, res) => {
@@ -83,16 +98,5 @@ app.delete('/eliminarUsuarios', (req, res) => {
     pool.query('DELETE FROM public.users WHERE id=$1', [id], (res1, resultados) => {
         res.status(200).send(resultados);
     });
-});
-app.put('/modificarusuario', (req, res) => {
-    let id = req.body.idUsuario;
-    let nombre = req.body.nombre;
-    pool.query("UPDATE public.users SET nombre=$1 WHERE id=$2", [nombre, id], (req1, resultados) => {
-        res.status(200).send(resultados);
-    });
-});
-//-----------------------------------------------------------------------------------------------------
-app.listen(Configuracion, () => {
-    console.log(`servidor escuchando ${Configuracion.server}:${Configuracion.port}`);
 });
 //# sourceMappingURL=index.js.map

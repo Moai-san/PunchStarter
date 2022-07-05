@@ -13,5 +13,6 @@
     <a *ngIf="getUserLogged()" href="./donateus">Donaciones</a>
     <a *ngIf="getUserAdmin()" href="./admin">Zona de Admins</a>
     <a href="./notFound">????</a>
+    <a *ngIf="getUserLogged()" href="./cambioClave">Cambiar Contraseña</a>
     <a><button *ngIf="getUserLogged()" class="button" (click)="setUserLogout()">Cerrar Sesion</button></a>
 </nav>

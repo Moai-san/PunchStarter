@@ -19,8 +19,12 @@ export class UsuariosService {
     return this.servicio.get(`${this.servidor}/usuarios`);
   }
 
-  EliminarUsuarios():Observable<any>{
-    return this.servicio.delete(`${this.servidor}/eliminarUsuarios`, HttpOption); //Probablemente necesite JSON.stringify(datos)
+  EliminarUsuarios(datos:any):Observable<any>{
+    return this.servicio.delete(`${this.servidor}/eliminarUsuarios`, HttpOption);
+  }
+
+  CambiarContraseña(datos:any):Observable<any>{
+    return this.servicio.put(`${this.servidor}/modificarClaveUsuarios`,JSON.stringify(datos), HttpOption);
   }
 
   postInicioS(datos:any):Observable<any>{

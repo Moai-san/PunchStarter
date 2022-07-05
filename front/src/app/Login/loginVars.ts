@@ -1,5 +1,6 @@
 import { concat } from "rxjs";
 import { LocalstorageService } from "../localstorage.service";
+import * as CryptoJS from 'crypto-js';
 
 export module loginVars
 {
@@ -53,7 +54,7 @@ export module loginVars
   {
     var toEnc:string =mail.concat(",",name.toString(),",",surname.toString());
     sessionId =encrypt(toEnc);
-    localStorage.saveData('sessionID',sessionId);
+    localStorage.saveData('sessionID',JSON.stringify(sessionId));
   }
 
   export function getSessionID()
