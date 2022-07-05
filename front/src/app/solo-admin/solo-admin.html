@@ -14,8 +14,19 @@
                 <td scope="row">{{item.name}}</td>
                 <td scope="row">{{item.surname}}</td>
                 <td scope="row">{{item.mail}}</td>
-                <td scope="row"><input type="checkbox" id="check{{item.id}}" value={{item.id}} onchange="addToDelete(this)"></td>
+                <!--<td scope="row"><input type="checkbox" id="check{{item.id}}" value={{item.id}} onchange="addToDelete(this)"></td>-->
             </tr>
         </tbody>
-    </table>    
+    </table>
 </div>
+
+<!--<div class="fluid-container">
+    <input type="text" name="id" placeholder="Id del usuario a eliminar" required>
+    <button type="submit" name="eliminar_usuario" class="button">Eliminar Usuario</button>
+</div>-->
+
+<form (ngSubmit)="deleteUser()" [formGroup]="formularioDelete" class="input-group">
+    <span class="input-group-addon">ID</span>
+    <input id="msg" type="text" class="form-control" formControlName="id" placeholder="ID DEL USUARIO A ELIMINAR">
+    <button type="submit" class="button">Eliminar al usuario</button>
+</form>

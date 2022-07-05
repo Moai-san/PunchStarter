@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const HttpOption = {
@@ -19,8 +19,8 @@ export class UsuariosService {
     return this.servicio.get(`${this.servidor}/usuarios`);
   }
 
-  EliminarUsuarios(datos:any):Observable<any>{
-    return this.servicio.delete(`${this.servidor}/eliminarUsuarios`, HttpOption);
+  EliminarUsuarios(id:string):Observable<any>{
+    return this.servicio.delete(`${this.servidor}/eliminarUsuarios/${id}`, HttpOption);
   }
 
   CambiarContraseña(datos:any):Observable<any>{

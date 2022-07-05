@@ -48,7 +48,6 @@ app.get('/usuarios', (req, res) => {
 app.post('/LogIn', bodyParser.json(), function (request, response) {
     let mail = request.body.mail;
     let password = request.body.password;
-    console.log(mail, password);
     if (mail && password) {
         pool.query("SELECT * FROM public.users WHERE mail = $1 and password = crypt($2, password)", [mail, password], function (error, results, fields) {
             return __awaiter(this, void 0, void 0, function* () {
@@ -91,9 +90,7 @@ app.put('/modificarClaveUsuarios', (req, res) => {
         res.send(null);
     }
 });
-//METODOS QUE SE TIENEN QUE IMPLEMENTAR --------------------------------------------------------------
-// Desinscribir usuarios
-app.delete('/eliminarUsuarios', (req, res) => {
+app.delete('/eliminarUsuarios/:id', (req, res) => {
     let id = req.params.id;
     pool.query('DELETE FROM public.users WHERE id=$1', [id], (res1, resultados) => {
         res.status(200).send(resultados);
