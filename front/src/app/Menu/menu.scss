@@ -140,6 +140,18 @@ nav
 		{
 			color: black;
 		}
+		.button
+		{
+			padding: 0px;
+			border: 0;
+			background-color: #d62956;
+			color: white;
+			float: right;
+			&:hover, &:focus
+			{
+				color: black;
+			}
+		}
 	}
 }
 
@@ -161,16 +173,6 @@ main
 		will-change: transform, filter;
 		transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 	}
-
-	/*.button
-	{
-		padding: 5px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-		margin-left: 5px;
-		margin-right: 5px;
-		float: right;
-	}*/
 }
 
 [id="navcheck"]:checked + label::before { 
