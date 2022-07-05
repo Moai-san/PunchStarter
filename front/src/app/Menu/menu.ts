@@ -23,5 +23,6 @@ export class menu
     public setUserLogout()
     {
         loginVars.setIsLogged(false);
+        loginVars.setIsAdmin(false);
     }
 }
