@@ -50,9 +50,9 @@ export module loginVars
     }
   }
 
-  export function setSessionID(mail:String,name:String,surname:String)
+  export function setSessionID(mail:string,name:string,surname:string)
   {
-    var toEnc:string =mail.concat(",",name.toString(),",",surname.toString());
+    var toEnc:string =mail.concat(",",name,",",surname);
     sessionId =encrypt(toEnc);
     localStorage.saveData('sessionID',JSON.stringify(sessionId));
   }

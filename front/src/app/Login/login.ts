@@ -40,7 +40,8 @@ export class login
           if(respuesta != null){
             loginVars.setSessionID((respuesta.mail),(respuesta.name),(respuesta.surname));
             loginVars.setIsAdmin(respuesta.isAdmin);
-            loginVars.setIsLogged(true); 
+            loginVars.setIsLogged(true);
+            window.location.replace("http://localhost:4200/");
           }else{
             window.alert("Datos incorrectos, verifique su correo o contraseña")
           }
@@ -56,9 +57,10 @@ export class login
           "bdate":this.formularioRegister.get("bdate")?.value
         }).subscribe(respuesta=>{
           if(respuesta != null){
-            loginVars.setSessionID((respuesta.mail),(respuesta.name),(respuesta.surname));
+            loginVars.setSessionID(this.formularioRegister.get("mail")?.value,this.formularioRegister.get("name")?.value,this.formularioRegister.get("surname")?.value);
             loginVars.setIsAdmin(false);
             loginVars.setIsLogged(true); 
+            window.location.replace("http://localhost:4200/");
           }else{
             window.alert("Datos incorrectos, verifique los datos de registro")
           }

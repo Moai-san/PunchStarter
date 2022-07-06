@@ -12,7 +12,7 @@ app.use(express.json())
 const pool = new Pool({
     host: 'localhost',
     user: 'postgres',
-    password: 'pandora',
+    password: '5440',
     database: 'punchstarter',
     port: '5432'
 });
